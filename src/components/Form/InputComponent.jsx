@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Input, FormControl, FormErrorMessage, Text, Box } from '@chakra-ui/react';
+import { WarningIcon } from '@chakra-ui/icons';
 import { Submit } from './Buton';
 import './form.css'
 
@@ -37,7 +38,7 @@ export function InputComponent() {
             minLength: {value: 4, message:'First Name cannot be empty'}
           })}
         />
-        <FormErrorMessage fontSize="12px" fontStyle="italic" position="absolute" top="45px" left="17rem" fontWeight="bold">{errors.firstname && errors.firstname.message}</FormErrorMessage>
+        <FormErrorMessage fontSize="12px" fontStyle="italic" position="absolute" top="50px" left="17rem" fontWeight="bold"> <WarningIcon mr="20px" /> {errors.firstname && errors.firstname.message}</FormErrorMessage>
         </FormControl>
 
         <FormControl isInvalid={errors.lastname}>
@@ -53,7 +54,7 @@ export function InputComponent() {
             required: true, minLength: {value: 4, message:'Last Name cannot be empty'}
           })}
           />
-          <FormErrorMessage fontSize="12px" fontStyle="italic" position="absolute" top="45px" left="17rem" fontWeight="bold">{errors.lastname && errors.lastname.message}</FormErrorMessage>
+          <FormErrorMessage fontSize="12px" fontStyle="italic" position="absolute" top="50px" left="17rem" fontWeight="bold"> <WarningIcon /> {errors.lastname && errors.lastname.message}</FormErrorMessage>
         </FormControl>
     
         <FormControl isInvalid={errors.email}>
@@ -67,7 +68,7 @@ export function InputComponent() {
           _placeholder={ {fontWeight:'semibold', fontSize:15} }
           {...register('email', {required: true, message: 'Looks like this is not a email',  pattern: /^\S+@\S+$/i})}
           />
-          <FormErrorMessage fontSize="12px" fontStyle="italic" position="absolute" top="45px" left="17rem" fontWeight="bold">{errors.email && errors.email.message}</FormErrorMessage>
+          <FormErrorMessage fontSize="12px" fontStyle="italic" position="absolute" top="50px" left="17rem" fontWeight="bold"> <WarningIcon /> {errors.email && errors.email.message}</FormErrorMessage>
         </FormControl>
       
 
@@ -86,7 +87,7 @@ export function InputComponent() {
             minLength : {value: 6, message:'Password cannot be empty'}
           })}
           />
-          <FormErrorMessage fontSize="12px" fontStyle="italic" position="absolute" top="45px" left="17rem" fontWeight="bold">{errors.password && errors.password.message}</FormErrorMessage>
+          <FormErrorMessage fontSize="12px" fontStyle="italic" position="absolute" top="50px" left="17rem" fontWeight="bold"> <WarningIcon /> {errors.password && errors.password.message}</FormErrorMessage>
         </FormControl>
       
         <Submit isLoading={isSubmitting} />
